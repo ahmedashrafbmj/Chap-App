@@ -20,4 +20,4 @@ io.on("connection", (socket) => {
     io.emit("userFormInfo", userForm);
   });
 });
-server.listen(8000, () => console.log("server is running on port 8000"));
+server.listen(process.env.port || 8000, (port) => console.log("server is running on port 8000"));
