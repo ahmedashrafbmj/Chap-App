@@ -25,4 +25,4 @@ app.get("/", (req, res, next) => {
   res.send("Hello world")
 })
 
-server.listen(3000, (port) => console.log("server is running on port 8000"));
+server.listen(process.env.port || 8000, (port) => console.log("server is running on port 8000"));
