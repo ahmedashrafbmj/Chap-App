@@ -1,0 +1,238 @@
+/* add css module styles here (optional) */
+
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+
+.mic_icon {
+  width: 35px;
+  display: flex;
+  height: 35px;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease all;
+  background: rgb(245, 0, 87);
+  border-radius: 50%;
+  /* bottom: 165px; */
+  /* right: 20%; */
+  color: #fff;
+  font-size: 25px;
+  /* margin-left: 227px; */
+  /* margin-bottom: -100px; */
+}
+
+.microphone_icon_sec {
+  width: 25px;
+  height: 25px;
+  display: flex;
+}
+
+.mic_icon:hover {
+  background-color: #fff;
+}
+
+.mic_icon_svg {
+  fill: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.mic_icon:hover .mic_icon_svg {
+  fill: rgb(245, 0, 87);
+}
+
+.reco_header {
+  display: flex;
+  justify-content: space-between;
+  background: #bd9f61;
+  align-items: center;
+  padding: 20px 20px;
+  color: #fff;
+  border-radius: 3px 3px 0 0;
+}
+
+.reco_header .h2 {
+  font-weight: 400;
+}
+
+.reco_header .close_icons {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  transition: 0.5s ease all;
+}
+
+.reco_header .close_icons:hover {
+  background: rgba(123, 118, 106, 0.21);
+}
+
+.record_section {
+  position: relative;
+  flex: 1;
+}
+
+.record_section .mic_icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+}
+
+.record_section .duration_section {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 100px;
+}
+
+.btn_wrapper {
+  margin: 50px 10px;
+  /* margin: 20px 30px; */
+}
+
+.btn_wrapper .btn {
+  border: 0;
+  outline: 0;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #185fec;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #185fec;
+  transition: 0.3s ease all;
+}
+
+.btn_wrapper .btn:hover {
+  background: #fff;
+  color: #185fec;
+}
+
+.btn_wrapper .clear_btn {
+  background: #fff;
+  color: #185fec;
+  margin-left: 15px;
+  height: 10px;
+}
+
+.btn_wrapper .clear_btn[disabled],
+.btn_wrapper .upload_btn[disabled] {
+  cursor: not-allowed;
+  color: #d9d9d9;
+  background: #f5f5f5;
+  border-color: #d9d9d9;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.btn_wrapper .clear_btn:hover {
+  background: #185fec;
+  color: #fff;
+}
+
+.duration {
+  text-align: center;
+  /* margin-right: 1000px;
+  margin-bottom: 10px; */
+}
+
+.recorder_page_box {
+  min-height: calc(100vh - 128px);
+  background: #fff;
+}
+
+.duration * {
+  color: rgb(15, 15, 15);
+  font-size: 25px;
+}
+
+.duration_section .help {
+  color: rgb(2, 0, 0);
+  /* margin-bottom: -41px;
+  margin-left: 110px;
+  font-size: 12px; */
+}
+
+.record_controller {
+  position: absolute;
+  /* left: 50%; */
+  left: -36%;
+  transform: translate(-50%);
+  bottom: 0px;
+  padding: 20px 0;
+  display: flex;
+}
+
+.record_controller .icons {
+  width: 35px;
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.record_controller .stop {
+  background: #940505;
+  position: relative;
+}
+
+.record_controller .pause {
+  background: #9c6702;
+  position: relative;
+}
+
+.play_icons {
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-width: 10px 0px 10px 17px;
+  border-color: transparent transparent transparent #fff;
+  box-sizing: border-box;
+  position: absolute;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+
+.pause_icons {
+  width: 17px;
+  height: 17px;
+  border-style: double;
+  border-width: 0px 0px 0px 15px;
+  border-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stop_icon {
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #fff;
+  border-radius: 2px;
+}
+
+.microphone_icon_sec {
+  width: 30px;
+  height: 30px;
+  display: flex;
+}
+/* .btn {
+  width: 64px;
+  height: 29px;
+  font-size: 10px;
+  margin-left: -27px;
+} */
+/* .audio_section {
+  margin-bottom: -10px;
+  height: 15px;
+  margin-left: 100px;
+} */

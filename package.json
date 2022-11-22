@@ -1,0 +1,16 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "antd": "^4.22.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.19",
+    "react-audio-player": "^0.17.0",
+    "socket.io": "^2.3.0",
+    "uuidv4": "^6.2.13"
+  }
+}
