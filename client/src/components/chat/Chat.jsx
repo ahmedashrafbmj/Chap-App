@@ -18,7 +18,7 @@ import RecorderControls from "./voiceRecorder/recorder-controls/RecorderControls
 import RecordingsList from "./voiceRecorder/recordings-list/RecordingsList";
 import useRecorder from "./voiceRecorder/hooks/useRecorder";
 
-const Chat = () => {
+const Chat = ({username}) => {
   const [chosenEmoji, setChosenEmoji] = useState(""); // input emoji
   const [file, setFile] = useState(); // image
   const [isUser, setUser] = useState([]);
@@ -43,7 +43,7 @@ const Chat = () => {
   const socketRef = useRef();
 
   useEffect(() => {
-    socketRef.current = io.connect("http://localhost:8000"); // connection to server
+    socketRef.current = io.connect("https://chatapp1222.herokuapp.com/"); // connection to server
 
     socketRef.current.on("your id", (id) => {
       // get id of user connecting
@@ -154,6 +154,7 @@ const Chat = () => {
         type: "text",
         body: message,
         key: uuid(),
+        author: username,
         time:
           new Date(Date.now()).getHours() +
           ":" +
@@ -257,6 +258,8 @@ const Chat = () => {
               </div>
               <div className="message-meta">
                 <p id="time">{message.time}</p>
+                <p id="time">{message.author}</p>
+                
               </div>
             </div>
           </div>
@@ -333,10 +336,10 @@ const Chat = () => {
             <p>
               {message.body === "start quiz" && message.key ? (
                 <div style={{ marginLeft: "210px" }}>
-                  <AdminForm
+                  {/* <AdminForm
                     quizCompleted={quizCompleted}
                     formContent={formContent}
-                  />
+                  /> */}
                 </div>
               ) : null}
             </p>
@@ -422,7 +425,7 @@ const Chat = () => {
         placeholder="Your question.."
       />
       {/* MCQ feature */}
-      <form autoComplete="off">
+      {/* <form autoComplete="off">
         <div className="form-field">
           {serviceList.map((singleService, index) => (
             <div key={index} className="services">
@@ -454,9 +457,9 @@ const Chat = () => {
             </div>
           ))}
         </div>
-      </form>
+      </form> */}
       {/* MCQ feature */}
-      <button
+      {/* <button
         class="btn btn-success"
         type="button"
         data-bs-toggle="collapse"
@@ -465,7 +468,7 @@ const Chat = () => {
         onClick={sendQuestion}
       >
         Save
-      </button>
+      </button> */}
     </div>
   );
   const handleVisibleChanges = (newVisible) => {
@@ -509,11 +512,12 @@ const Chat = () => {
   return (
     <>
       <div className="chat-window">
-        <DisplayForm userData={userData} />
+        {/* <DisplayForm userData={userData} /> */}
         <div className="chat-body">
           <Chatbot message={message} replyFromBot={replyFromBot} />
           <ScrollToBottom className="message-container">
             {messages.map(renderMessages)}{" "}
+            {/* console.log(renderMessages) */}
           </ScrollToBottom>
         </div>
         <div
@@ -565,7 +569,7 @@ const Chat = () => {
             visible={MCQvisible}
             onVisibleChange={handleVisibleChanges}
           >
-            <Button>MCQ</Button>
+            {/* <Button>MCQ</Button> */}
           </Popover>
           <VideoInput sendVideo={sendVideo} />
 

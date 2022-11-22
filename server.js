@@ -9,6 +9,11 @@ const io = socket(server);
 io.on("connection", (socket) => {
   socket.emit("your id", socket.id);
 
+  socket.on("join_room", (data) => {
+    socket.join(data);
+    console.log(`User with ID: ${socket.id} joined room: ${data}`);
+  });
+
   socket.on("send message", (body) => {
     io.emit("message", body);
   });
@@ -18,6 +23,9 @@ io.on("connection", (socket) => {
   });
   socket.on("send Form", (userForm) => {
     io.emit("userFormInfo", userForm);
+  });
+  socket.on("disconnect", () => {
+    console.log("User Disconnected", socket.id);
   });
 });
 
