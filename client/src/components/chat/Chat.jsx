@@ -43,6 +43,7 @@ const Chat = () => {
   const socketRef = useRef();
   const leave  = ()=>{
     localStorage.removeItem("name","room")
+    window.location.reload(true);
   }
 
   useEffect(() => {
