@@ -18,7 +18,7 @@ import RecorderControls from "./voiceRecorder/recorder-controls/RecorderControls
 import RecordingsList from "./voiceRecorder/recordings-list/RecordingsList";
 import useRecorder from "./voiceRecorder/hooks/useRecorder";
 
-const Chat = ({username}) => {
+const Chat = () => {
   const [chosenEmoji, setChosenEmoji] = useState(""); // input emoji
   const [file, setFile] = useState(); // image
   const [isUser, setUser] = useState([]);
@@ -41,9 +41,12 @@ const Chat = ({username}) => {
   const { recorderState, ...handlers } = useRecorder();
   const { audio } = recorderState;
   const socketRef = useRef();
+  const leave  = ()=>{
+    localStorage.removeItem("name","room")
+  }
 
   useEffect(() => {
-    socketRef.current = io.connect("https://chatapp1222.herokuapp.com/"); // connection to server
+    socketRef.current = io.connect("http://localhost:8000/"); // connection to server
 
     socketRef.current.on("your id", (id) => {
       // get id of user connecting
@@ -149,6 +152,7 @@ const Chat = ({username}) => {
         setMessage("");
         await socketRef.current.emit("send message", messageObject);
       }
+      let username = localStorage.getItem("name")
       const messageObject = {
         id: yourID,
         type: "text",
@@ -591,6 +595,7 @@ const Chat = ({username}) => {
         </div>
       </div>
       {/* <VoiceRecorder sendVoiceRecorder={sendVoiceRecorder} /> */}
+      <button onClick={leave} style={{ color: "white",backgroundColor:"#43a047" }}>Leave Chat</button>
 
       {audioData ? null : (
         <div className="recorder-container">

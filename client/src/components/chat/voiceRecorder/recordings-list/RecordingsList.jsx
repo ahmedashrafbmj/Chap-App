@@ -7,7 +7,11 @@ import {
 import useRecordingsList from "../hooks/use-recordings-list";
 import "./styles.css";
 import React, { useState } from "react";
+import { Button } from 'antd';
 export default function RecordingsList({ audio, sendVoiceRecorder }) {
+  const leave  = ()=>{
+    localStorage.removeItem("name","room")
+  }
   const { recordings, deleteAudio } = useRecordingsList(audio);
   // const [data, setData] = useState(false);
   const newRecording = recordings[recordings.length - 1];
@@ -47,6 +51,8 @@ export default function RecordingsList({ audio, sendVoiceRecorder }) {
             size="1x"
             color="#f2ea02"
           />
+
+          {/* <button onClick={leave} style={{ color: "white" }}>Leave Chat</button> */}
           <span style={{ color: "white" }}>You don't have records</span>
         </div>
       )}
